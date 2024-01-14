@@ -15,7 +15,7 @@ const routes: Array<RouteRecordRaw> = [
     meta: {
       requiresAuth: true,
     },
-    component: () => import('@/views/Pages/ProjectsPage.vue')
+    component: () => import('@/views/Pages/Projects/ProjectsPage.vue')
   },
   {
     name: 'Login',
@@ -32,6 +32,38 @@ const routes: Array<RouteRecordRaw> = [
       onlyGuests: true,
     },
     component: () => import('@/views/Auth/RegisterPage.vue')
+  },
+  {
+    name: 'CreateProjectForm',
+    path: '/admin/create-project',
+    meta: {
+      requiresAuth: true,
+    },
+    component: () => import('@/views/Pages/Projects/ProjectForm.vue')
+  },
+  {
+    name: 'EditProjectForm',
+    path: '/admin/edit-project/:id',
+    meta: {
+      requiresAuth: true,
+    },
+    component: () => import('@/views/Pages/Projects/ProjectForm.vue')
+  },
+  {
+    name: 'TasksProject',
+    path: '/admin/project-tasks/:id',
+    meta: {
+      requiresAuth: true,
+    },
+    component: () => import('@/views/Pages/Tasks/TasksPage.vue')
+  },
+  {
+    name: 'StatisticPage',
+    path: '/admin/statistic',
+    meta: {
+      requiresAuth: true,
+    },
+    component: () => import('@/views/Pages/Statistic/StatisticPage.vue')
   },
 ];
 

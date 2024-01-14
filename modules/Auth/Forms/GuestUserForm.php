@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Auth\Forms;
 
-use App\Models\User;
 use Illuminate\Validation\Rules\Password;
 use Modules\System\Forms\AbstractForm;
 use Modules\System\Forms\Inputs\InputText;

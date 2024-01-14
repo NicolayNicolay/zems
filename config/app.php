@@ -5,6 +5,7 @@ use Illuminate\Support\ServiceProvider;
 
 return [
 
+    'per_page' => 50,
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -70,7 +71,7 @@ return [
     |
     */
 
-    'timezone' => 'Europe/Moscow',
+    'timezone' => 'Etc/UTC',
     /*
     |--------------------------------------------------------------------------
     | Application Locale Configuration

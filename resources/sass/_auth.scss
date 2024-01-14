@@ -4,7 +4,7 @@
   padding: 15px;
   margin: auto;
   //color: white;
-  .logo{
+  .logo {
     display: block;
     font-weight: bold;
     text-align: center;
@@ -14,8 +14,9 @@
     width: 100%;
     max-width: 190px;
     text-transform: uppercase;
-    color:$primary;
+    color: $primary;
   }
+
   h1 {
     margin-bottom: 0;
   }
@@ -28,7 +29,11 @@
     z-index: 2;
   }
 
-  hr{
+  hr {
     border-top: 1px solid white;
+  }
+
+  .card {
+    --mo-card-color: white;
   }
 }

@@ -28,9 +28,19 @@
                     </div>
                   </router-link>
                 </li>
+                <li class="nav-item">
+                  <router-link class="nav-link" :to="{name: 'StatisticPage'}">
+                    <div class="wrapper-link">
+                      <span class="icon text-primary">
+                        <statistic-icon />
+                    </span>
+                      Статистика
+                    </div>
+                  </router-link>
+                </li>
                 <!--                Выход-->
                 <li class="nav-item">
-                  <a class="nav-link" href="/admin/logout">
+                  <a class="nav-link" href="/api/admin/logout">
                     <div class="wrapper-link">
                     <span class="icon text-primary">
                       <exit-icon/>
@@ -70,6 +80,7 @@
       </div>
     </div>
   </div>
+  <modal-component />
   <mobile-menu/>
 </template>
 
@@ -82,6 +93,8 @@ import LogoIcon from "@/components/Icons/LogoIcon.vue";
 import MobileMenu from "@/components/Mobile/MobileMenu.vue";
 import MobileIcon from "@/components/Icons/MobileIcon.vue";
 import BreadcrumbComponent from "@/components/System/BreadcrumbComponent.vue";
+import ModalComponent from "@/components/Modals/ModalComponent.vue";
+import StatisticIcon from "@/components/Icons/StatisticIcon.vue";
 
 const user = ref(authStore().userData)
 </script>

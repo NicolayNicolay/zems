@@ -5,13 +5,14 @@ declare(strict_types=1);
 namespace Modules\Auth\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Auth\RedirectsUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 use Modules\Auth\Forms\GuestUserForm;
+use Modules\Roles\Models\Role;
+use Modules\Users\Models\User;
 
 class RegisterController extends Controller
 {

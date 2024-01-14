@@ -52,7 +52,7 @@ import {authStore} from "@/stores/authStore"
 import LogoIcon from "@/components/Icons/LogoIcon.vue"
 import {useRouter} from 'vue-router';
 
-const route = useRouter();
+const router = useRouter();
 const form = ref({
   email: '',
   password: '',
@@ -68,7 +68,7 @@ function authorize() {
       authStore()
         .checkAuth()
         .then(() => {
-          route.push({name: 'ProjectsPage'})
+          router.push({name: 'ProjectsPage'})
         })
     })
     .catch((error) => {

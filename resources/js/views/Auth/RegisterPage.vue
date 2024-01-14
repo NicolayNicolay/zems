@@ -57,7 +57,7 @@ import {ref} from "vue"
 import {useRouter} from 'vue-router';
 import DisplayErrors from "@/components/System/DisplayErrors.vue";
 
-const route = useRouter();
+const router = useRouter();
 const form = ref({
   name: '',
   email: '',
@@ -76,7 +76,7 @@ function register() {
       authStore()
         .checkAuth()
         .then(() => {
-          route.push({name: 'ProjectsPage'})
+          router.push({name: 'ProjectsPage'})
         })
     })
     .catch((error) => {
