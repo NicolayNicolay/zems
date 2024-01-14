@@ -30,7 +30,7 @@
                 <tr v-for="(object,index) in data" :key="index">
                   <td>{{ object.id }}</td>
                   <td>
-                    <router-link :to="{name: 'TasksProject', params: {id: object.id}}" class="text-decoration-none">{{ object.name }}</router-link>
+                    <router-link :to="{name: 'TasksProject', params: {id: object.id}}" class="text-decoration-none text-black fw-bolder">{{ object.name }}</router-link>
                   </td>
                   <td>{{ object.tasks_count }}</td>
                   <td>{{ object.created_at }}</td>
