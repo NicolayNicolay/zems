@@ -26,7 +26,7 @@ class StatisticService
                     $end = $task->end;
                     $time = Carbon::parse($end)->diff(Carbon::parse($start));
                     $minutes = $time->format('%i.%s');
-                    $minutes = round($minutes);
+                    $minutes = round((float) $minutes);
                     $hours = $time->format('%h');
                     $tmp_item['h'] += (int) $hours;
                     $tmp_item['m'] += (int) $minutes;
