@@ -20,7 +20,7 @@ class ProjectsSeeder extends Seeder
      */
     public function run()
     {
-        $user = [
+        $userData = [
             'name'     => 'admin',
             'email'    => 'admin@admin.ru',
             'password' => Hash::make('password'),
@@ -112,13 +112,7 @@ class ProjectsSeeder extends Seeder
             ],
         ];
 
-        $user = User::query()->create(
-            [
-                'name'     => 'admin',
-                'email'    => 'admin@admin.ru',
-                'password' => Hash::make('password'),
-            ]
-        );
+        $user = User::query()->create($userData);
         foreach ($projects as $project) {
             $current_project = (new Projects())->create(
                 [
