@@ -41,5 +41,4 @@ class User extends Authenticatable implements LaratrustUser
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
 }
