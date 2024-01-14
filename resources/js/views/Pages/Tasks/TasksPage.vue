@@ -220,7 +220,7 @@ h6 {
 }
 
 .col {
-  height: 90vh;
+  height: 70vh;
   overflow: auto;
 }
 

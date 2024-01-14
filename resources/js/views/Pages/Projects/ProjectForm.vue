@@ -94,7 +94,6 @@ onMounted(() => {
 
 async function getForm() {
   loading.value = true;
-  console.log(route.params);
   if (route.params && route.params.id) {
     objectId.value = Number(route.params.id);
   }

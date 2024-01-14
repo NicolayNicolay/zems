@@ -15,7 +15,6 @@ const params = reactive<breadcrumbsParams>({
 })
 
 function init(items: any, mainActive: boolean = true) {
-  console.log(items);
   mainBreadCrumb.value.active = mainActive
   breadCrumb.value = [mainBreadCrumb.value, ...items]
 }

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
 import axios from "axios";
 import {useModal} from '@/composables/useModal'
 import InputTextComponent from "@/components/Forms/InputTextComponent.vue";
@@ -13,15 +13,21 @@ const workStatus = ref(false)
 const makeUser = ref('')
 const endWork = ref(false)
 const endWorkTime = ref('')
+const readyWork = ref(false)
 
-if (params.modelValue.element.make_user_id) {
-  workStatus.value = !!params.modelValue.element.make_user_id
-  makeUser.value = params.modelValue.element.make_user_data.name
-  if (params.modelValue.element.end) {
-    endWork.value = true
-    endWorkTime.value = params.modelValue.element.end
+onMounted(() => {
+  if (params.modelValue.element && params.modelValue.element.id) {
+    readyWork.value = true
   }
-}
+  if (params.modelValue.element && params.modelValue.element.make_user_id) {
+    workStatus.value = !!params.modelValue.element.make_user_id
+    makeUser.value = params.modelValue.element.make_user_data.name
+    if (params.modelValue.element.end) {
+      endWork.value = true
+      endWorkTime.value = params.modelValue.element.end
+    }
+  }
+})
 
 
 const form = ref({
@@ -41,7 +47,6 @@ if (params.modelValue.element) {
  * Отправка формы
  */
 function submitForm() {
-  console.log(form.value);
   axios.post(config.api_url + 'tasks/store', form.value)
     .then(() => {
       close()
@@ -113,27 +118,29 @@ function endTask() {
                   class="form-control"
                 ></textarea-component>
               </div>
-              <template v-if="!endWork">
-                <div class="text-start mb-3" v-if="!workStatus">
-                  <a href="#" @click.prevent="startTask">
-                    Взять в работу
-                  </a>
-                </div>
+              <template v-if="readyWork">
+                <template v-if="!endWork">
+                  <div class="text-start mb-3" v-if="!workStatus">
+                    <a href="#" @click.prevent="startTask">
+                      Взять в работу
+                    </a>
+                  </div>
+                  <div class="text-start mb-3" v-else>
+                    <div>Взял в работу: {{ makeUser }}</div>
+                    <a href="#" @click.prevent="endTask">
+                      Закончить работу
+                    </a>
+                  </div>
+                </template>
                 <div class="text-start mb-3" v-else>
-                  <div>Взял в работу: {{ makeUser }}</div>
-                  <a href="#" @click.prevent="endTask">
-                    Закончить работу
-                  </a>
+                  <div>
+                    Задачу выполнил: {{ makeUser }}
+                  </div>
+                  <div>
+                    Конец выполнения: {{ endWorkTime }}
+                  </div>
                 </div>
               </template>
-              <div class="text-start mb-3" v-else>
-                <div>
-                  Задачу выполнил: {{ makeUser }}
-                </div>
-                <div>
-                  Конец выполнения: {{ endWorkTime }}
-                </div>
-              </div>
             </div>
           </div>
         </div>
