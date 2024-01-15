@@ -21,7 +21,7 @@ class ProjectsSeeder extends Seeder
     public function run()
     {
         $userData = [
-            'name'     => 'admin',
+            'name'     => 'Администратор',
             'email'    => 'admin@admin.ru',
             'password' => Hash::make('password'),
         ];

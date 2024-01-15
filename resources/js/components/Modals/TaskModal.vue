@@ -67,8 +67,6 @@ function startTask() {
       } else {
         close()
         params.modelValue.reloadFunction()
-        makeUser.value = response.data.user
-        workStatus.value = true
       }
     });
 }
@@ -79,8 +77,6 @@ function endTask() {
       if (response.data.status) {
         close()
         params.modelValue.reloadFunction()
-        endWork.value = true;
-        endWorkTime.value = response.data.end_time;
       } else {
         errors.value = response.data.error
       }

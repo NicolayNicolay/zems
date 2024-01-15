@@ -1,7 +1,6 @@
 <template>
   <admin-panel>
     <template v-if="!loading">
-      <flash-message type="success" class="mb-2"></flash-message>
       <h1 class="bd-title"> {{ data.name }} </h1>
       <div class="row">
         <div class="col-6 col-lg-2">
@@ -220,7 +219,7 @@ h6 {
 }
 
 .col {
-  height: 70vh;
+  min-height: 70vh;
   overflow: auto;
 }
 

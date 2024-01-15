@@ -100,7 +100,7 @@ class TasksController extends Controller
             if (! $task->make_user_id) {
                 $task?->update([
                                    'make_user_id' => Auth::user()->id,
-                                   'start'        => Carbon::now()->format('Y-m-d H:i:s'),
+                                   'start'        => Carbon::now()->timezone('Europe/Moscow')->format('Y-m-d H:i:s'),
                                    'state' => 2,
                                ]);
                 return [
@@ -128,7 +128,7 @@ class TasksController extends Controller
         if ($id) {
             $task = $this->tasks->find($id);
             if ($task->make_user_id && ! $task->end) {
-                $end_time = Carbon::now()->format('Y-m-d H:i:s');
+                $end_time = Carbon::now()->timezone('Europe/Moscow')->format('Y-m-d H:i:s');
                 $task?->update([
                                    'state' => 4,
                                    'end'   => $end_time,
