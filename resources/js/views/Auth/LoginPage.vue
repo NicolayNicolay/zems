@@ -8,13 +8,13 @@
               <logo-icon/>
             </div>
             <hr>
-            <div class="alert alert-danger" v-if="errors">{{ errors }}</div>
             <div class="text-center">
               <h1 class="h2 fw-bold">Авторизация</h1>
               <div class="mb-3">
                 Пожалуйста, авторизуйтесь
               </div>
             </div>
+            <div class="alert alert-danger" v-if="errors">{{ errors }}</div>
             <div class="form-floating">
               <input type="email" id="email" name="email" class="form-control" v-model="form.email" required>
               <label for="email">E-mail</label>

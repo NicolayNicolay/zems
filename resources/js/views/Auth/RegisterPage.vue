@@ -8,13 +8,13 @@
               <logo-icon/>
             </div>
             <hr>
-            <display-errors :errors="errors" v-if="errors" :key="key"></display-errors>
             <div class="text-center">
               <h1 class="h2 fw-bold">Регистрация</h1>
               <div class="mb-3">
                 Пожалуйста, зарегистрируйтесь
               </div>
             </div>
+            <display-errors :errors="errors" v-if="errors" :key="key"></display-errors>
             <div class="form-floating">
               <input type="text" id="name" name="name" class="form-control" v-model="form.name" required>
               <label for="name">ФИО</label>
