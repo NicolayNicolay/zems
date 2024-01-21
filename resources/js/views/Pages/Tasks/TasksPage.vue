@@ -128,7 +128,14 @@ const bread = ref([
     'active': false
   }])
 const data = ref([])
-const tasks = ref({
+interface ObjectTasks {
+  cpu: any,
+  switch: any,
+  controller: any,
+  psu: any,
+}
+
+const tasks = ref <ObjectTasks>({
   'ideas': [],
   'todos': [],
   'inProgress': [],

@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Modules\Enums\StatusEnum;
 use Modules\Projects\Forms\ProjectForm;
 use Modules\Projects\Models\Projects;
 use Modules\Projects\Resources\ProjectResource;
@@ -81,7 +82,7 @@ class TasksController extends Controller
     public function changeState(Request $request): void
     {
         $state = $request->input('state');
-        $states = config('tasks.states_value');
+        $states = StatusEnum::arrayNames();
         if ($state) {
             $task = $this->tasks->find($request->input('id'));
             $task?->update(['state' => $states[$state]]);

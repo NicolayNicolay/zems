@@ -59,7 +59,6 @@ import DisplayErrors from "@/components/System/DisplayErrors.vue";
 import InputTextComponent from "@/components/Forms/InputTextComponent.vue";
 import TextareaComponent from "@/components/Forms/TextAreaComponent.vue";
 
-const token = ref(null)
 const loading = ref(true)
 const form = ref([])
 const title = ref('')
@@ -85,10 +84,6 @@ const bread = ref([
 init(bread.value);
 
 onMounted(() => {
-  let tokenPage = document.head.querySelector('meta[name="csrf-token"]');
-  if (tokenPage) {
-    token.value = ref(tokenPage.content)
-  }
   getForm();
 })
 

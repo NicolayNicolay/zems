@@ -6,6 +6,7 @@ namespace Modules\Projects\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Modules\Enums\StatusEnum;
 use Modules\Projects\Models\Projects;
 
 /**
@@ -40,10 +41,10 @@ class ProjectResource extends JsonResource
             'inProgress' => [],
             'completed'  => [],
         ];
-        $states = config('tasks.states');
+        $states = StatusEnum::array();
         if ($this->tasks) {
             foreach ($this->tasks as $task) {
-                $result->{$states[(int) $task['state'] - 1]}[] = $task;
+                $result->{$states[$task['state']]}[] = $task;
             }
         }
         return $result;
